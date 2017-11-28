@@ -1,5 +1,5 @@
 [System]
-Name='voice_recognition_power_amplitude'
+Name='voice_recognition_gender'
 Type='mamdani'
 Version=2.0
 NumInputs=1
@@ -12,11 +12,12 @@ AggMethod='max'
 DefuzzMethod='centroid'
 
 [Input1]
-Name='powerAmplitude'
-Range=[-1 2]
-NumMFs=2
-MF1='female':'trimf',[-1 0 1]
-MF2='male':'trimf',[0 1 2]
+Name='powerSpectrum'
+Range=[0 120]
+NumMFs=3
+MF1='whisper':'trimf',[-40 0 40]
+MF2='conversation':'trimf',[30 55 80]
+MF3='loudRockConcert':'trimf',[70 95 120]
 
 [Output1]
 Name='output1'
